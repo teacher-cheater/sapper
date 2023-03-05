@@ -6,7 +6,7 @@ let columns = 16;
 const minesCount = 10; //от 0 до 40
 const minesLocation = []; // 2-8
 
-const gameOver = false;
+let gameOver = false;
 
 window.onload = () => startGame();
 
@@ -21,7 +21,7 @@ function startGame() {
   for (let i = 0; i < rows; i++) {
     let row = []
     for (let k = 0; k < columns; k++) {
-      const tile = document.createElement("div")
+      let tile = document.createElement("div")
       tile.id = `${i.toString()}-${k.toString()}`;
       tile.addEventListener('click', clickTile)
       document.querySelector("#board").append(tile)
@@ -36,7 +36,20 @@ function clickTile() {
   if (minesLocation.includes(this.id)) {
     document.querySelector('.main__smile').innerHTML = "GAME OVER";
     gameOver = true;
+    showMines();
     return;
   }
 }
 
+function showMines() {
+  for (i = 0; i < rows; i++) {
+    for (let k = 0; k < columns; k++) {
+      let tile = board[i][k]
+      if (minesLocation.includes(tile.id)) {
+        tile.classList.add('bomb-danger')
+        //tile.innerHTML = "B"
+        console.log(tile)
+      }
+    }
+  }
+}

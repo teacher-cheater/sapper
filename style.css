@@ -44,6 +44,8 @@ a {
   /*border: 1px solid gray;*/
   /*background: gainsboro;*/
   background: url("./icons/tile.png") 0 0 / contain no-repeat;
+  /*background: url("./icons/bomb-danger.png") 0 0 / contain no-repeat !important;*/
+
   align-items: center;
   box-shadow: inset;
 }
@@ -51,6 +53,10 @@ a {
 .clicked {
   background: gainsboro !important;
   /*background: url("./icons/bomb.png") 0 0 / contain no-repeat !important;*/
+}
+
+.bomb-danger {
+  background: url("./icons/bomb-danger.png") 0 0 / contain no-repeat !important;
 }
 
 .number-1 {
